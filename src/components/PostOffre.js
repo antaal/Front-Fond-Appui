@@ -27,6 +27,7 @@ display: grid;
 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 gap: 3rem;
 padding: 1rem 5rem 1rem 5rem;
+margin: 0  2rem 0 2rem ;
 `
 
 export default PostOffre

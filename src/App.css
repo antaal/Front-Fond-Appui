@@ -1376,9 +1376,19 @@ a.fg-light:hover, a.fg-light:focus {
 .form-control {
   padding: 8px 15px;
   height: calc(1.5em + 1.375rem + 2px);
-  border-color: #dee1e6;
+  border-color: #00721F !important;
+}
+.form-select{
+  padding: 8px 15px;
+  height: calc(1.5em + 1.375rem + 2px);
+  border-color: #00721F !important;
 }
 
+
+.selected-file {
+  color: #000;
+  font-weight: bold;
+}
 .custom-select {
   height: calc(1.5em + 1.375rem + 2px);
 }
@@ -1656,111 +1666,19 @@ a.fg-light:hover, a.fg-light:focus {
 
 @media (min-width: 768px) {
   .page-banner.home-banner {
-    height: 540px;
+    height: 100px;
     max-height: unset;
   }
 }
 
 .slider-wrapper {
   position: relative;
-  height: 100%;
+  height: 50%;
 }
 
-.hero-carousel {
-  height: 100%;
-}
 
-.owl-carousel .owl-stage-outer {
-  height: 100%;
-}
 
-.hero-carousel-item {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
 
-.hero-carousel-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(51, 55, 75, 0.5);
-}
-
-.hero-carousel-item img {
-  width: 100%;
-  height: auto;
-}
-
-.hero-carousel .owl-nav {
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
-}
-
-.hero-carousel:hover .owl-nav {
-  opacity: 1;
-  visibility: visible;
-}
-
-.hero-carousel .owl-nav .owl-prev,
-.hero-carousel .owl-nav .owl-next {
-  -webkit-transform: scale(0.5);
-          transform: scale(0.5);
-  -webkit-transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.hero-carousel:hover .owl-nav .owl-prev,
-.hero-carousel:hover .owl-nav .owl-next {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-
-.hero-carousel .owl-dots {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-}
-
-.hero-carousel .img-caption {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  padding: 0 16px;
-  width: auto;
-  max-width: 900px;
-  height: 100%;
-  text-align: center;
-  color: #fff;
-  margin-top: 10%;
-}
-
-.hero-carousel h1 {
-  font-weight: 300;
-}
-
-.hero-carousel .subhead {
-  color: #fff;
-  font-weight: 400;
-}
-
-@media (min-width: 768px) {
-  .hero-carousel h1 {
-    font-size: 56px;
-  }
-  .hero-carousel .subhead {
-    font-size: 20px;
-  }
-}
 
 .page-section {
   position: relative;
@@ -1810,10 +1728,7 @@ a.fg-light:hover, a.fg-light:focus {
   width: 100%;
 }
 
-.team-carousel {
-  display: block;
-  width: 100%;
-}
+
 
 .team-wrap {
   position: relative;
@@ -1883,7 +1798,7 @@ a.fg-light:hover, a.fg-light:focus {
   max-width: 100%;
 }
 
-.card-testimonial {
+                                                                                                                                                                                                                      -testimonial {
   position: relative;
   display: block;
   margin: 0 auto;
@@ -2380,58 +2295,7 @@ a.fg-light:hover, a.fg-light:focus {
   text-align: center;
 }
 
-.owl-carousel .owl-nav button.owl-next,
-.owl-carousel .owl-nav button.owl-prev {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  display: inline-block;
-  margin: auto;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  border-radius: 50%;
-  text-align: center;
-  background-color: #2F89FC;
-  color: #fff;
-}
 
-.owl-carousel .owl-nav button.owl-next:focus,
-.owl-carousel .owl-nav button.owl-prev:focus {
-  outline: none;
-}
-
-.owl-carousel .owl-nav button.owl-next {
-  right: 10px;
-}
-
-.owl-carousel .owl-nav button.owl-prev {
-  left: 10px;
-}
-
-.owl-carousel .owl-dots {
-  display: block;
-  margin: 16px auto;
-  text-align: center;
-}
-
-.owl-carousel button.owl-dot {
-  display: inline-block;
-  margin: 0 4px;
-  width: 36px;
-  height: 4px;
-  background-color: #c6ccd3;
-  -webkit-transition: all .2s ease;
-  transition: all .2s ease;
-}
-
-.owl-carousel button.owl-dot:focus {
-  outline: none;
-}
-
-.owl-carousel button.owl-dot.active {
-  background-color: #2F89FC;
-}
 
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
@@ -8864,7 +8728,8 @@ a.close.disabled {
 }
 
 .carousel {
-  position: relative;
+  position: absolute;
+ 
 }
 
 .carousel.pointer-event {
@@ -8873,7 +8738,7 @@ a.close.disabled {
 }
 
 .carousel-inner {
-  position: relative;
+  position: absolute;
   width: 100%;
   overflow: hidden;
 }

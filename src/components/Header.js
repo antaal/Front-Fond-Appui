@@ -3,7 +3,7 @@ import React from 'react'
 const Header = () => {
   return (
     <>
-    <div className="mb-4">
+    <div className="mb-4 ">
     <div className="top-bar">
       <div className="container">
         <div className="row align-items-center">
@@ -16,16 +16,16 @@ const Header = () => {
             </div>
           </div>
             <div className="col-md-4">
-                <div className="d-inline-block">
+                <div className="d-inline-block align-center">
                     <img src={"images/Rectangle.png"} alt='rectangle' className='rectangle center'/>
                 </div>
             </div>
           <div className="col-md-4 text-right d-none d-md-block">
             <div className="social-mini-button">
               <a href="Accueil"><img src={"/images/facebook.png"} alt="fab"/></a>
-              <a href="Accueil"><img src={"/images/facebook.png"} alt="fab"/></a>
-              <a href="Accueil"><img src={"/images/facebook.png"} alt="fab"/></a>
-              <a href="Accueil"><img src={"/images/facebook.png"} alt="fab"/></a>
+              <a href="Accueil"><img src={"/images/twitter.png"} alt="fab"/></a>
+              <a href="Accueil"><img src={"/images/youtube.png"} alt="fab"/></a>
+              <a href="Accueil"><img src={"/images/telephone.png"} alt="fab"/></a>
                 
 
             </div>

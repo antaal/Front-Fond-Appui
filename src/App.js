@@ -1,22 +1,30 @@
 import React from 'react'
 import './App.css';
-import {Routes, Route} from 'react-router-dom';
+import {BrowserRouter,Route, Routes} from 'react-router-dom';
+import MasterLayout from './layouts/admin/MasterLayout';
 import Home from './pages/Home';
-import Detail from './pages/Detail';
-import PostOffre from './components/PostOffre';
+
+
+
 
 
 function App() {
   return (
-  <Routes>
-    <Route path="/" element={<Home />} />
-      <Route path="/" element={<PostOffre />} />
-      
-      <Route path="/details" element={<Detail />} />
-  </Routes>
+    <div className="App">
 
+    
+
+      <BrowserRouter>
       
-  
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/admin/dashboard" element={<MasterLayout />} />
+        </Routes>
+      
+      </BrowserRouter>
+
+</div>
+    
   );
 }
 
