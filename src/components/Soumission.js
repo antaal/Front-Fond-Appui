@@ -35,7 +35,7 @@ useEffect(()=>{
        </div>
     
     <div className='col-md-8 mx-auto'>
-        <form method='post'className="row col-lg-12" enctype='multipart/form-data'  onSubmit={handleSubmit}>
+        <form method='post'className="row col-lg-12" encType='multipart/form-data'  onSubmit={handleSubmit}>
   <div className="col-md-6">
     <label for="inputNom" className="form-label">Nom Du Responsable</label>
     <input type="text"name="nom" className="form-control" id="inputNom" />
@@ -48,6 +48,10 @@ useEffect(()=>{
     <label for="date_Naissance" className="form-label">Date Naissance du Responsable</label>
     <input type="datetime" name="date_Naissance" className="form-control" id="date_Naissance"/>
   </div>
+  <div className="col-md-6 mb-4">
+  <label for="CNI_recto" className="form-label">Carte national d’identité recto</label>
+  <input className="form-control" name="CNI_recto" type="text" id="CNI_recto"/>
+</div>
   <div className="col-md-12 mb-4">
   <h1 className='text-center' for="type_Representant">Statut Juridique</h1>
     <div className="col-md-12  d-flex justify-content-center  ">
@@ -220,10 +224,7 @@ useEffect(()=>{
   </tbody>
 </table>
 </div>
-<div className="col-md-6 mb-3">
-  <label for="CNI_recto" className="form-label">Carte national d’identité recto</label>
-  <input className="form-control" name="CNI_recto" type="text" id="CNI_recto"/>
-</div>
+
 {/* <div className=" col-md-6 mb-3">
   <label for="CNI_verso" className="form-label">Carte national d’identité verso</label>
   <input className="form-control" name="CNI_verso" type="file" id="CNI_verso"/>

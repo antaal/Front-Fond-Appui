@@ -1,0 +1,93 @@
+import axios from 'axios';
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import styled from 'styled-components'
+const url = "http://127.0.0.1:8000/api";
+const Connexion = () => {
+  const [error, setError] =useState(false);
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleLogin = async (e)=>{
+    e.preventDefault();
+
+    // if input is empty
+    if(email!= '' && password!= ''){
+      await axios
+      .post(`${url}/login`,{
+         email, password,
+      })
+      .then((res)=>{
+        console.log(res.data)
+        if (res.data.status !== 200){
+          setError(true)
+         }
+      })
+      .catch((err)=>{
+        console.log(err);
+      });
+    }else{
+      alert("Veuillez remplir tous les champs");
+    }
+  };
+  let navigate = useNavigate();
+  return (
+    <Wrapper className="row">
+     <ImageWrapper className="col-4 ">
+          <img src={"/images/connexion.png"} alt="ime2" />
+        </ImageWrapper>
+        <Content className="col-5 ">
+        <div >
+          <h1>Connexion</h1>
+          {error? 'Non reconnus': null}
+        <form onSubmit={handleLogin} >
+        <div >
+    <label for="inputEmail4" className="form-label">Email</label>
+    <input type="email"
+    className="form-control" 
+    id="inputEmail4"
+    placeholder='Entrez votre email'
+    onChange={(e)=>setEmail(e.target.value)} value={email}/>
+  </div>
+  <div>
+    <label for="inputPassword4" className="form-label">Votre mot de Passe</label>
+    <input type="password"
+     className="form-control"
+      id="inputPassword4"
+      placeholder='Entrez votre mot de passe..'
+      onChange={(e)=>setPassword(e.target.value)} value={password}/>
+  </div>
+  
+ 
+  
+  <div className="col-6 mt-2">
+    <button type="submit" className="btn btn-primary">Me Connecter</button>
+  </div> 
+  
+</form>
+<div className="col-md-12">
+    <p>Vous n'avez pas de Compte
+      <a className=" text-success fw-bolder" onClick={() =>navigate('/register')}>S'Inscrire</a>
+    </p>
+  </div>
+    </div>
+        </Content>
+        
+    </Wrapper>
+  )
+}
+
+const Wrapper = styled.div`
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+  `
+const Content = styled.div`
+`
+const ImageWrapper = styled.div`
+  
+`
+
+
+export default Connexion;

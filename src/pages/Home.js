@@ -1,14 +1,12 @@
 import React from 'react'
 import '../App.css';
+import Layout from './Layout'
+import Soumission from '../components/Soumission'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Caroussel from '../components/Caroussel';
-import Responsable from '../components/Responsable';
-import Secteur from '../components/Secteur';
-import Soumission from '../components/Soumission';
-import Projet from '../components/Projet';
-import Footer from '../layouts/admin/Footer';
-import SideBar from '../layouts/admin/SideBar';
-import Navbar from '../layouts/admin/Navbar';
-
+import About from '../components/About';
+import PostOffre from '../components/PostOffre';
 
 
  
@@ -16,10 +14,11 @@ import Navbar from '../layouts/admin/Navbar';
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
       
-      
-    
+      <Header/>
+      <About />
+      <PostOffre />
+    <Footer />
      
     </div>
   )

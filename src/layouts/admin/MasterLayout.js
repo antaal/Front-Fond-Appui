@@ -1,38 +1,45 @@
 import React from 'react';
 import '../../assets/admin/css/styles.css';
 import '../../assets/admin/js/scripts.js';
-import Navbar from './Navbar';
 
+import Footer from './Footer';
 import SideBar from './SideBar'
-
+import styled from 'styled-components'
+import routes from '../../routes/routes';
+import { Routes, Route, Navigate} from 'react-router-dom';
 
 const MasterLayout = () => {
   return (
-    
-    <>
-    
     <div>
-    <SideBar />
-        
-        <main class="container">
-       <Navbar />
-        
-        <div class="jumbotron jumbotron-fluid rounded bg-white border-0 shadow-sm border-left px-4">
-  <div class="container">
-    <h1 class="display-4 mb-2 text-primary">Simple</h1>
-    <p class="lead text-muted">Simple Admin Dashboard with Bootstrap.</p>
-  </div>
-</div>
-      </main>
-      </div>
-        
-       
-
-        </> 
+            <SideBar />
+           
+            <main className="container">
+                <Routes>
+                  {routes.map((route,index)=>{
+                    return(
+                      route.element && (
+                        <Route
+                        key={index}
+                        path={route.path}
+                        exact={route.exact}
+                        name={route.name}
+                        render={(props)=>(
+                          <route.element {...props} />
+                        )}
+                          />
+                      )
+                    )
+                  })}
+                  <Navigate from="admin" to="admin/dashboard" />
+                </Routes>
+            </main>
+    
+           <Footer />
+          </div>
    
-    // <div>coucou</div>
-  )
-}
+      )
+    }
+    
 
 
 export default MasterLayout
