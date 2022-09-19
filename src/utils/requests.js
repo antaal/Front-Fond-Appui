@@ -1,7 +1,9 @@
 import axios from 'axios';
+import { useState } from 'react';
 
-const url = "http://127.0.0.1:8000/api";
 
+
+const url = "http://127.0.0.1:8000/api"
 
 export const postSecteur = async (secteur) => {
     const response= await axios.post(`${url}/secteurs`, secteur)
@@ -55,6 +57,24 @@ export const getAllProjets = async () => {
     return response.data;
     });
 }
+
+
+// export const getUserLoggin= async () => {
+//     return await axios.get(`${url}/user`,{
+//         headers: {
+//             Authorization: `Bearer ${localStorage.getItem('user_token')}`
+//         }
+//     })
+//     .then(response => {
+       
+//         console.log(response.data);
+//         setUser(response.data)
+//             setLoading(false)
+//     })
+//     .catch(error => {
+//         console.log(error);
+//     });
+// }
 ////////////////////////////////////////get by id/////////////////
 
 export const getProjetById = async (id) => {

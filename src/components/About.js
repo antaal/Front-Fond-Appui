@@ -3,7 +3,7 @@ import React from 'react'
 const About = () => {
   return (
     
-          <div className=" col-md-8 text-center text-dark mb-4  mx-auto">
+          <div className=" col-md-8 text-center text-dark  mx-auto">
       
        <div className="page-section">
       <div className="container">
@@ -24,10 +24,10 @@ L’institution est composée de dix directions avec plus de 1600 agents et 800 
         </div>
       </div> 
     </div> 
-      <div>
-      <iframe width="700" height="440" src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=Dakar%2CSenegal+(Maire%20Dakar)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"/>
+      {/* <div>
+      <iframe width="700px" height="100%" src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=Dakar%2CSenegal+(Maire%20Dakar)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"/>
       
-      </div>
+      </div> */}
     </div>
   )
 }

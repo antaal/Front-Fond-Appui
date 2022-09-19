@@ -1,18 +1,30 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
+import { authContext } from '../../helpers/AppContext';
+import { userInfo } from '../../utils/requests';
 const url = "http://127.0.0.1:8000/api";
 const Connexion = () => {
+  const {logged, setLogged} = useContext(authContext)
+  const [user, setUser] = useState(undefined)
+  const [loading, setLoading]= useState(true);
+
+  let navigate = useNavigate();
+
   const [error, setError] =useState(false);
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  useEffect(()=>{
+    checkLogin()
+  }, []);
+     
   const handleLogin = async (e)=>{
     e.preventDefault();
 
     // if input is empty
-    if(email!= '' && password!= ''){
+    if(email !=='' && password!== ''){
       await axios
       .post(`${url}/login`,{
          email, password,
@@ -22,6 +34,13 @@ const Connexion = () => {
         if (res.data.status !== 200){
           setError(true)
          }
+         if (res.data.status === 200) {
+          console.log(res.data)
+          localStorage.setItem('user_token',res.data.token)
+          setLogged(true)
+          userInfo();
+          navigate('/propos')
+         }
       })
       .catch((err)=>{
         console.log(err);
@@ -30,7 +49,36 @@ const Connexion = () => {
       alert("Veuillez remplir tous les champs");
     }
   };
-  let navigate = useNavigate();
+ 
+ const userInfo = async () => {
+    if (localStorage.getItem('user_token')) {
+        await axios.get(`${url}/user`,{
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('user_token')}`
+            }
+        })
+        .then(response => {
+           
+            console.log(response.data);
+            setLogged(true)
+            setUser(response.data)
+            
+        })
+        .catch(error => {
+            console.log(error);
+        });
+        
+    }
+}
+
+
+ const checkLogin = ()=> {
+    if (localStorage.getItem('user_token')) {
+        setLogged(true)
+        navigate('/propos')
+        
+    }
+}
   return (
     <Wrapper className="row">
      <ImageWrapper className="col-4 ">
@@ -39,7 +87,7 @@ const Connexion = () => {
         <Content className="col-5 ">
         <div >
           <h1>Connexion</h1>
-          {error? 'Non reconnus': null}
+          {error? 'Donnees Non reconnus': null}
         <form onSubmit={handleLogin} >
         <div >
     <label for="inputEmail4" className="form-label">Email</label>
@@ -61,7 +109,7 @@ const Connexion = () => {
  
   
   <div className="col-6 mt-2">
-    <button type="submit" className="btn btn-primary">Me Connecter</button>
+    <button type="submit" className="btn btn-primary" >Me Connecter</button>
   </div> 
   
 </form>

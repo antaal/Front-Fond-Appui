@@ -14,7 +14,7 @@ const Inscrire = () => {
     e.preventDefault();
 
     // if input is empty
-    if(nom!= '' && prenom!= '' && email!= '' && password!= ''){
+    if(nom!== '' && prenom!== '' && email!== '' && password!==''){
       await axios
       .post(`${url}/register`,{
         nom, prenom, email, password,

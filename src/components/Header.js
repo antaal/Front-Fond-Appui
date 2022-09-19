@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import { authContext } from '../helpers/AppContext'
 
 const Header = () => {
+  const {logged} = useContext(authContext)
   return (
     <>
     <div className="mb-4 ">
@@ -48,14 +51,19 @@ const Header = () => {
             <li className="nav-item">
               <a href="index.html" className="nav-link bg-red">Accueil</a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a href="about.html" className="nav-link">A Propos</a>
-            </li>
+            </li> */}
             <li className="nav-item">
               <a href="services.html" className="nav-link">Contact</a>
             </li>
             <li className="nav-item">
-              <a href="portfolio.html" className="nav-link">S'Inscrire</a>
+              {logged ? (
+                  <Link to={"/propos"} className="nav-link">A Propos</Link>
+              ) : (
+                <Link to={"/login"} className="nav-link">Se Connecter</Link>
+              )}
+              
             </li>
           </ul>
         </div>

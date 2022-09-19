@@ -1,6 +1,7 @@
 import React ,{useState, useEffect} from 'react'
 import {postProjet, postResponsable} from '../utils/requests'
 import { getAllQuartiers,getAllOffres } from '../utils/requests'
+import Header from './Header';
 
 const Soumission = () => {
   const [quartiers, setQuartiers] = useState({data: []});
@@ -30,6 +31,7 @@ useEffect(()=>{
 
   return (
     <>
+    <Header />
        <div className=" col-md-8 text-center text-dark mb-4  mx-auto">
         <h1>Information sur le Soumissionnaire</h1>
        </div>
@@ -44,6 +46,15 @@ useEffect(()=>{
     <label for="inputPrenom" className="form-label">Prenom du Responsable</label>
     <input type="text" name="prenom" className="form-control" id="inputPrenom"/>
   </div>
+  <div className="col-md-6 mb-4">
+    <label for="inputEmail" className="form-label">Email du Responsable</label>
+    <input type="email" name="email" className="form-control" id="inputEmail"/>
+  </div>
+  <div className="col-md-6 mb-4">
+    <label for="inputPassword" className="form-label">Mot de passe du Responsable</label>
+    <input type="password" name="password" className="form-control" id="inputPassword"/>
+  </div>
+  
   <div className="col-md-6 mb-4">
     <label for="date_Naissance" className="form-label">Date Naissance du Responsable</label>
     <input type="datetime" name="date_Naissance" className="form-control" id="date_Naissance"/>
