@@ -45,12 +45,12 @@ const DetailProjet = () => {
         <h5 className="card-title">Financement sollicitée</h5>
         </div>
         <ul className="list-group ">
-    <li className="list-group-item"><h6 className="fw-bold">Subvention sollicitée:</h6>{projets.subvention_Sollicitee}</li>
-    <li className="list-group-item"><h6 className="fw-bold">Somme Autre Soutien:</h6>{projets.somme_Autre_Soutien}</li>
-    <li className="list-group-item"><h6 className="fw-bold">Apport Personnel:</h6>{projets.apport_Personnel}</li>
-    <li className="list-group-item"><h6 className="fw-bold">Budget Total:</h6>{projets.total_Budget}</li>
-    <li className="list-group-item"><h6 className="fw-bold">Autre Financement:</h6>{projets.autre_Financement_Fond}</li>
-    <li className="list-group-item"><h6 className="fw-bold">Date Autre Financement:</h6>{projets.date_Autre_Financement}</li>
+    <li className="list-group-item"><h6 className="fw-bold">Subvention sollicitée:</h6>{projets.subvention_Sollicitee} FCFA</li>
+    {/* <li className="list-group-item"><h6 className="fw-bold">Somme Autre Soutien:</h6>{projets.somme_Autre_Soutien}</li> */}
+    <li className="list-group-item"><h6 className="fw-bold">Apport Personnel:</h6>{projets.apport_Personnel} FCFA</li>
+    <li className="list-group-item"><h6 className="fw-bold">Budget Total:</h6>{projets.total_Budget} FCFA</li>
+    {/* <li className="list-group-item"><h6 className="fw-bold">Autre Financement:</h6>{projets.autre_Financement_Fond}</li>
+    <li className="list-group-item"><h6 className="fw-bold">Date Autre Financement:</h6>{projets.date_Autre_Financement}</li> */}
   </ul>
      
     </div>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+
 
 
 
@@ -16,7 +16,11 @@ export const postOffre = async (offre) => {
 }
         
 export const postResponsable =async (responsable) => {
-    const response = await axios.post(`${url}/responsables`, responsable)
+    const response = await axios.post(`${url}/responsables`, responsable
+    // , {
+    //     Authorization: `Bearer ${localStorage.getItem('user_token')}`
+    // }
+    )
     return response.data;
 }
 // export const postCommune =async (commune) => {
@@ -24,7 +28,11 @@ export const postResponsable =async (responsable) => {
 //     return response.data;
 // }
 export const postProjet = async (projet) => {
-    const response = await axios.post(`${url}/projets`, projet)
+     const response = await axios.post(`${url}/projets`, projet
+     //,  {
+    //     Authorization: `Bearer ${localStorage.getItem('user_token')}`
+    // }
+    )
     return response.data;
 }
 ////////////////////////////////////////////////requete Get////////////////////////////////////

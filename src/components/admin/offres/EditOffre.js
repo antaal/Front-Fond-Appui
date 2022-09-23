@@ -26,7 +26,7 @@ export default function EditOffre() {
 
   const fetchOffres = async () => {
     await axios.get(`http://localhost:8000/api/offres/${id}`).then(({data})=>{
-      const { titre, description,date_Lancement,fin_Depot} = data.offre
+      const { titre, description,date_Lancement,fin_Depot} = data
       setTitre(titre)
       setDescription(description)
       setDateLancement(date_Lancement)
@@ -57,6 +57,7 @@ export default function EditOffre() {
     }
 
     await axios.post(`http://localhost:8000/api/offres/${id}`, formData).then(({data})=>{
+   
       Swal.fire({
         icon:"success",
         text:data.message
@@ -65,6 +66,7 @@ export default function EditOffre() {
     }).catch(({response})=>{
       if(response.status===422){
         setValidationError(response.data.errors)
+        console.log(response.data.errors);
       }else{
         Swal.fire({
           text:response.data.message,

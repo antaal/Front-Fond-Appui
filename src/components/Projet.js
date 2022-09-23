@@ -54,14 +54,14 @@ const Soumission = () => {
    </select> */}
    <input type="text" name="zone_Execution" className="form-control" id="zone_Execution" />
  </div>
- <div className="col-md-12">
+ {/* <div className="col-md-12">
    <label for="autre_Financement_Fond" className="form-label">Autre Financement du Fonds d’Appui</label>
    <input type="boolean" name="autre_Financement_Fond" className="form-control" id="autre_Financement_Fond"/>
- </div>
- <div className="col-md-12">
+ </div> */}
+ {/* <div className="col-md-12">
    <label for="date_Autre_Financement" className="form-label">Date Autre Financement du Fonds d’Appui</label>
    <input type="datetime" name="date_Autre_Financement" className="form-control" id="date_Autre_Financement"/>
- </div>
+ </div> */}
  <div className=" col-md-8 text-center text-dark mb-4  mx-auto">
        <h1>Montants Budget du Projet </h1>
       </div>
@@ -70,10 +70,10 @@ const Soumission = () => {
    <input type="number" name="subvention_Sollicitee"className="form-control" id="inputSubvention"/>
  </div>
 
- <div className="col-md-6 mb-4">
+ {/* <div className="col-md-6 mb-4">
    <label for="inputSomme" className="form-label">Somme des autres soutiens</label>
    <input type="number" name="somme_Autre_Soutien" className="form-control" id="inputSomme" />
- </div>
+ </div> */}
  <div className="col-md-6">
    <label for="inputApport" className="form-label">Apport personnel</label>
    <input type="number" name="apport_Personnel" className="form-control" id="inputApport"/>

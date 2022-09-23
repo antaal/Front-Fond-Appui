@@ -67,10 +67,11 @@ export default function ListOffres() {
                             <thead>
                                 <tr>
                                     <th>Titre</th>
-                                    <th>Image</th>
+                                    
                                     <th>Description</th>
                                     <th>Date Lancement</th>
                                     <th>Fin Depot</th>
+                                    <th>Image</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -84,7 +85,7 @@ export default function ListOffres() {
                                                 <td>{row.date_Lancement}</td>
                                                 <td>{row.fin_Depot}</td>
                                                 <td>
-                                                    <img width="50px" src={`http://localhost:8000/storage/offres/image/${row.image}`} />
+                                                    <img width="50px" src={`http://localhost:8000/storage/${row.image}`} />
                                                 </td>
                                                 <td>
                                                     <Link to={`/offre/edit/${row.id}`} className='btn btn-success me-2'>

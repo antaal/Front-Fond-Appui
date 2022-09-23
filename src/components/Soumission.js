@@ -6,6 +6,7 @@ import Header from './Header';
 const Soumission = () => {
   const [quartiers, setQuartiers] = useState({data: []});
    const [offres, setOffres] = useState({data: []});
+ 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('Submit ')
@@ -38,7 +39,7 @@ useEffect(()=>{
     
     <div className='col-md-8 mx-auto'>
         <form method='post'className="row col-lg-12" encType='multipart/form-data'  onSubmit={handleSubmit}>
-  <div className="col-md-6">
+  {/* <div className="col-md-6">
     <label for="inputNom" className="form-label">Nom Du Responsable</label>
     <input type="text"name="nom" className="form-control" id="inputNom" />
   </div>
@@ -53,15 +54,16 @@ useEffect(()=>{
   <div className="col-md-6 mb-4">
     <label for="inputPassword" className="form-label">Mot de passe du Responsable</label>
     <input type="password" name="password" className="form-control" id="inputPassword"/>
-  </div>
+  </div> */}
   
   <div className="col-md-6 mb-4">
+  {/* <input type="hidden" name="users_id"  /> */}
     <label for="date_Naissance" className="form-label">Date Naissance du Responsable</label>
     <input type="datetime" name="date_Naissance" className="form-control" id="date_Naissance"/>
   </div>
   <div className="col-md-6 mb-4">
-  <label for="CNI_recto" className="form-label">Carte national d’identité recto</label>
-  <input className="form-control" name="CNI_recto" type="text" id="CNI_recto"/>
+  <label for="CNI_recto" className="form-label">Numero Carte D'Identité</label>
+  <input className="form-control" name="Numero_piece" type="integer" id="CNI_recto"/>
 </div>
   <div className="col-md-12 mb-4">
   <h1 className='text-center' for="type_Representant">Statut Juridique</h1>
@@ -110,7 +112,7 @@ useEffect(()=>{
   </div>
   <div className="col-md-6">
     <label for="Numero_identite" className="form-label">Numéro d’identité National</label>
-    <input type="number" name="Numero_identite" className="form-control" id="Numero_identite"/>
+    <input type="integer" name="Numero_identite" className="form-control" id="Numero_identite"/>
   </div>
   <div className="col-12 mb-4">
     <label for="inputRecepisse" className="form-label">Numéro Récépissé ou NINEA *</label>
@@ -145,14 +147,14 @@ useEffect(()=>{
    </select> */}
    <input type="text" name="zone_Execution" className="form-control" id="zone_Execution" />
  </div>
- <div className="col-md-12">
+ {/* <div className="col-md-12">
    <label for="autre_Financement_Fond" className="form-label">Autre Financement du Fonds d’Appui</label>
    <input type="boolean" name="autre_Financement_Fond" className="form-control" id="autre_Financement_Fond"/>
  </div>
  <div className="col-md-12">
    <label for="date_Autre_Financement" className="form-label">Date Autre Financement du Fonds d’Appui</label>
    <input type="datetime" name="date_Autre_Financement" className="form-control" id="date_Autre_Financement"/>
- </div>
+ </div> */}
  <div className=" col-md-8 text-center text-dark mb-4  mx-auto">
        <h1>Montants Budget du Projet </h1>
       </div>
@@ -161,10 +163,10 @@ useEffect(()=>{
    <input type="number" name="subvention_Sollicitee"className="form-control" id="inputSubvention"/>
  </div>
 
- <div className="col-md-6 mb-4">
+ {/* <div className="col-md-6 mb-4">
    <label for="inputSomme" className="form-label">Somme des autres soutiens</label>
    <input type="number" name="somme_Autre_Soutien" className="form-control" id="inputSomme" />
- </div>
+ </div> */}
  <div className="col-md-6">
    <label for="inputApport" className="form-label">Apport personnel</label>
    <input type="number" name="apport_Personnel" className="form-control" id="inputApport"/>
@@ -209,7 +211,7 @@ useEffect(()=>{
   <tbody>
     <tr>
       <th scope="row">Objectif Général </th>
-      <td name="Description_General"><input type="text" className="w-100" name="Description_General"/></td>
+      <td><input type="text" className="w-100" name="Description_General"/></td>
     </tr>
     <tr>
       <th scope="row">OS1  (Objectif Spécifique 1) </th>
@@ -219,17 +221,17 @@ useEffect(()=>{
 
     <tr>
       <th scope="row">Activites </th>
-      <td ><input type="text" className="w-100" name="description_Objectif"/></td>
+      <td ><input type="text" className="w-100" name="description_Activite"/></td>
       
     </tr>
     <tr>
       <th scope="row">Risque Identifies </th>
-      <td ><input type="text" className="w-100" name="description_Objectif"/></td>
+      <td ><input type="text" className="w-100" name="risque_Identifier"/></td>
       
     </tr>
     <tr>
       <th scope="row">Resultats escomptés </th>
-      <td ><input type="text" className="w-100" name="description_Objectif"/></td>
+      <td ><input type="text" className="w-100" name="description_Resultat"/></td>
       
     </tr>
   </tbody>

@@ -40,7 +40,7 @@ const ListProjet = () => {
             <td>{row.objet_Projet}</td>
             <td>{row.Contexte}</td>
             <td>{row.Description_General}</td>
-            <td>{row.duree_Execution}</td>
+            <td>{row.duree_Execution} Mois</td>
             <td>{row.zone_Execution}</td>
             <td>{row.responsable_id}</td>
             <td>{row.action}

@@ -18,7 +18,13 @@ export default function FormOffre() {
   const [validationError,setValidationError] = useState({})
 
   const changeHandler = (event) => {
-		setImage(event.target.files[0]);
+    // let src = URL.createObjectURL(event)
+    // const reader = new FileReader()
+    // console.log(reader)
+
+    setImage(event.target.files[0]);
+
+
 	};
 
   const createOffre = async (e) => {
@@ -33,9 +39,11 @@ export default function FormOffre() {
     formData.append('fin_Depot', fin_Depot)
 
     await axios.post(`http://localhost:8000/api/offres`, formData).then(({data})=>{
+      console.log(data);
       Swal.fire({
         icon:"success",
-        text:data.message
+        text:data.message,
+        
       })
       navigate("/")
     }).catch(({response})=>{
@@ -76,7 +84,7 @@ export default function FormOffre() {
                     </div>
                   )
                 }
-                <Form onSubmit={createOffre}>
+                <Form onSubmit={createOffre} >
                   <Row> 
                       <Col>
                         <Form.Group controlId="Name">
@@ -92,7 +100,7 @@ export default function FormOffre() {
                     <Col>
                       <Form.Group controlId="Image" className="mb-3">
                         <Form.Label>Image</Form.Label>
-                        <Form.Control type="file" onChange={changeHandler} />
+                        <Form.Control type="file" onChange={changeHandler}/>
                       </Form.Group>
                     </Col>
                   </Row>

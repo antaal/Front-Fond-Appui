@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import About from '../components/About';
 import PostOffre from '../components/PostOffre';
+import Caroussel from '../components/Caroussel';
 
 
 
@@ -14,6 +15,7 @@ const Home = () => {
     <div>
       
       <Header/>
+      <Caroussel />
       <About />
       <PostOffre />
        <Footer />

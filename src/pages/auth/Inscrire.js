@@ -2,14 +2,14 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
-const url = "http://127.0.0.1:8000/api";
+
 const Inscrire = () => {
   const [nom, setNom] = useState('')
   const [prenom, setPrenom] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  
+  const url = "http://127.0.0.1:8000/api"
   const handleRegistration = async (e)=>{
     e.preventDefault();
 

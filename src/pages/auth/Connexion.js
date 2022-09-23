@@ -3,13 +3,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { authContext } from '../../helpers/AppContext';
-import { userInfo } from '../../utils/requests';
-const url = "http://127.0.0.1:8000/api";
-const Connexion = () => {
-  const {logged, setLogged} = useContext(authContext)
-  const [user, setUser] = useState(undefined)
-  const [loading, setLoading]= useState(true);
 
+const Connexion = () => {
+  // const {logged, setLogged} = useContext(authContext)
+  const [setUser] = useState(undefined)
+  const [loading, setLoading]= useState(true);
+  const url = "http://127.0.0.1:8000/api";
   let navigate = useNavigate();
 
   const [error, setError] =useState(false);
@@ -37,9 +36,9 @@ const Connexion = () => {
          if (res.data.status === 200) {
           console.log(res.data)
           localStorage.setItem('user_token',res.data.token)
-          setLogged(true)
+          // setLogged(true)
           userInfo();
-          navigate('/propos')
+          navigate('/soumission')
          }
       })
       .catch((err)=>{
@@ -60,7 +59,7 @@ const Connexion = () => {
         .then(response => {
            
             console.log(response.data);
-            setLogged(true)
+            // setLogged(true)
             setUser(response.data)
             
         })
@@ -74,8 +73,8 @@ const Connexion = () => {
 
  const checkLogin = ()=> {
     if (localStorage.getItem('user_token')) {
-        setLogged(true)
-        navigate('/propos')
+        // setLogged(true)
+        navigate('/soumission')
         
     }
 }

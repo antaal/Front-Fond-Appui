@@ -13,7 +13,7 @@ e.stopPropagation();
     <Card onClick={handleClick}>
 <div className="col-md-8  col-sm-6 mx-4 ">
 <div className="card">
-  <img  src={offre.images} className="card-img-top" alt="images"/>
+  <img  src={`http://localhost:8000/storage/${offre.image}`} className="card-img-top" alt="images"/>
   
   <div className="card-body">
     <h5 className="card-title">{offre.titre}</h5>
