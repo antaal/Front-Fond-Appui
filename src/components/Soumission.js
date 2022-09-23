@@ -77,18 +77,18 @@ useEffect(()=>{
    </div>
    </div>
    <div className="col-md-6 mb-4">
-    <label for="id_quartier" className="form-label">Domiciliation</label>
+    <label for="quartiers_id" className="form-label">Domiciliation</label>
     
     {/* <input type="text" name="id_quartier" className="form-control" id="id_quartier" /> */}
-    <select id="id_quartier" className="form-select" name="id_quartier" defaultValue>
+    <select id="quartiers_id" className="form-select" name="quartiers_id" defaultValue>
       <option >Choisir Votre Quartier</option>
       {quartiers.length > 0 && quartiers.map(q => <option value={q.id} key={q.id}>{q.nom_Quartier}</option>)}
 
     </select>
   </div>
   <div className="col-md-6 ">
-    <label for="offre_id" className="form-label">Offres</label>
-    <select id="offre_id" className="form-select" name="offre_id" defaultValue>
+    <label for="offres_id" className="form-label">Offres</label>
+    <select id="offres_id" className="form-select" name="offres_id" defaultValue>
       <option >Choisir votre Offre</option>
       {offres.length > 0 && offres.map(o => <option value={o.id} key={o.id}>{o.titre}</option>)}
 

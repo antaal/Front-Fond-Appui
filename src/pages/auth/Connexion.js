@@ -59,7 +59,7 @@ const Connexion = () => {
         .then(response => {
            
             console.log(response.data);
-            // setLogged(true)
+          setLogged(true)
             setUser(response.data)
             
         })
