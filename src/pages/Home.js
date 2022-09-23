@@ -12,6 +12,7 @@ import Caroussel from '../components/Caroussel';
 
 const Home = () => {
   return (
+    
     <div>
       
       <Header/>

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-// import { authContext } from '../helpers/AppContext'
+ import { authContext } from '../helpers/AppContext'
 
 const Header = () => {
-  // const {logged} = useContext(authContext)
+   const {logged} = useContext(authContext)
   return (
     <>
     <div className="mb-4 ">
@@ -57,14 +57,14 @@ const Header = () => {
             <li className="nav-item">
               <a href="services.html" className="nav-link">Contact</a>
             </li>
-            {/* <li className="nav-item">
+            <li className="nav-item">
               {logged ? (
                   <Link to={"/soumission"} className="nav-link">Projet</Link>
               ) : (
                 <Link to={"/login"} className="nav-link">Se Connecter</Link>
                )} 
               
-            </li> */}
+            </li>
           </ul>
         </div>
       </div> 
