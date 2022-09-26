@@ -42,7 +42,7 @@ const Header = () => {
         <img src={"/images/logo1.png"} className="navbar-brand" alt="logo" />
         <a href="Accueil" className="navbar-brand">Ville de <i className="text-success">Dakar.</i></a>
 
-        <button className="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler" data-bs-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <i className="navbar-toggler-icon"></i>
         </button>
 
@@ -55,7 +55,7 @@ const Header = () => {
               <a href="about.html" className="nav-link">A Propos</a>
             </li> */}
             <li className="nav-item">
-              <a href="services.html" className="nav-link">Contact</a>
+              <Link to={"/contact"} className="nav-link">Contact</Link>
             </li>
             <li className="nav-item">
               {logged ? (
@@ -77,3 +77,4 @@ const Header = () => {
 }
 
 export default Header
+

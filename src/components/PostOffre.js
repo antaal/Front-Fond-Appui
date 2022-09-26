@@ -24,10 +24,8 @@ const PostOffre = () => {
 
 const Wrapper = styled.div`
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 3rem;
+grid-template-columns: repeat(3, minmax(200px,1fr));
 padding: 1rem 5rem 1rem 5rem;
-margin: 0  2rem 0 2rem ;
 `
 
 export default PostOffre

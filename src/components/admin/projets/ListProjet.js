@@ -42,7 +42,7 @@ const ListProjet = () => {
             <td>{row.Description_General}</td>
             <td>{row.duree_Execution} Mois</td>
             <td>{row.zone_Execution}</td>
-            <td>{row.responsable_id}</td>
+            <td>{row.responsables_id}</td>
             <td>{row.action}
             <Link to={`/admin/detailprojet/${row.id}`} className="btn btn-primary mr-2">Detail</Link>
             

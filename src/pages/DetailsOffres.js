@@ -15,8 +15,8 @@ const DetailsOffres = ({offre}) => {
         
         <div className="row">
         
-          <div className="col-md-6">
-            <img className="img-fluid" src={offre.images} alt="im22"/>
+          <div className="col-md-8">
+            <img className="img-fluid" src={`http://localhost:8000/storage/${offre.image}`} alt="im22"/>
           </div>
         
           <div className="col-md-5">
@@ -26,7 +26,7 @@ const DetailsOffres = ({offre}) => {
             <ul>
               <li className="fw-bolder"><p>Date Lancement de l'Offre:{offre.date_Lancement}</p></li>
               <li className="fw-bolder"> <p>Date Clôture de l'Offre:{offre.fin_Depot}</p></li>
-              <li className="fw-bolder"><p>Secteur Concerné:{offre.secteur_id}</p></li>
+              <li className="fw-bolder"><p>Secteur Concerné:{offre.secteur}</p></li>
             </ul>
           </div>
         <div>

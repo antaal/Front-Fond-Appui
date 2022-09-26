@@ -2,6 +2,8 @@ import React, { useRef } from 'react'
 import emailjs from '@emailjs/browser';
 import styled from 'styled-components'
 import Header from './Header'
+import Maps from './maps/Maps';
+import Footer from './Footer';
 
 const Contact = () => {
   const form = useRef()
@@ -23,14 +25,15 @@ const Contact = () => {
   return (
     <div>
         <Header />
-        <h1 className="text-center">Contactez Nous</h1>
-         <Wrapper className="col-12 container">
-     <ImageWrapper>
-          <img src={"/images/conn.png"} alt="ime2"  className="col-lg-6 "/>
-        </ImageWrapper>
-        <Content  className="col-lg-6 ">
+       
+         <div className=" container ">
+     <div >
+          <img src={"/images/conn.png"} alt="ime2" className="col-lg-12" />
+        </div>
+      
         <div >
-        <form ref={form} onSubmit={sendEmail}>
+        <h1 className="text-center">Contactez Nous</h1>
+        <form ref={form} onSubmit={sendEmail} className="col-lg-12">
         <div>
     <label for="inputNom" className="form-label">Nom</label>
     <input type="text"name="nom" className="form-control" id="inputNom" />
@@ -54,30 +57,21 @@ const Contact = () => {
   
  
   
-  <div className="col-lg-6 mt-2">
-    <button type="submit" className="btn btn-primary float-end">Envoyer</button>
+  <div className="col-lg-12 mt-2 mb-4 footer ">
+    <button type="submit" className="btn btn-primary float-end mb-4 ">Envoyer</button>
   </div> 
   
 </form>
 
     </div>
-        </Content>
         
-    </Wrapper>
+        
+    </div>
+    <Maps />
+    <Footer />
     </div>
   )
 }
-const Wrapper = styled.div`
-display:flex;
-justify-content: space-between;
-align-items: center;
 
-
-  `
-const Content = styled.div`
-`
-const ImageWrapper = styled.div`
-  
-`
 
 export default Contact

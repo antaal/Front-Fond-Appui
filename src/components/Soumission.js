@@ -39,7 +39,7 @@ useEffect(()=>{
     
     <div className='col-md-8 mx-auto'>
         <form method='post'className="row col-lg-12" encType='multipart/form-data'  onSubmit={handleSubmit}>
-  {/* <div className="col-md-6">
+  <div className="col-md-6">
     <label for="inputNom" className="form-label">Nom Du Responsable</label>
     <input type="text"name="nom" className="form-control" id="inputNom" />
   </div>
@@ -51,13 +51,13 @@ useEffect(()=>{
     <label for="inputEmail" className="form-label">Email du Responsable</label>
     <input type="email" name="email" className="form-control" id="inputEmail"/>
   </div>
-  <div className="col-md-6 mb-4">
+  {/* <div className="col-md-6 mb-4">
     <label for="inputPassword" className="form-label">Mot de passe du Responsable</label>
     <input type="password" name="password" className="form-control" id="inputPassword"/>
   </div> */}
-  
+    {/* <input type="hidden" name="users_id"  /> */}
   <div className="col-md-6 mb-4">
-  {/* <input type="hidden" name="users_id"  /> */}
+
     <label for="date_Naissance" className="form-label">Date Naissance du Responsable</label>
     <input type="datetime" name="date_Naissance" className="form-control" id="date_Naissance"/>
   </div>

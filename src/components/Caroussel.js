@@ -3,13 +3,13 @@ import { Carousel } from 'react-bootstrap'
 
 export default function Caroussel() {
   return (
-    <div>
+    <div className="h-100">
      
     <Carousel>
       <Carousel.Item>
         <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=First slide&bg=373940"
+          className="d-block w-100 h-100"
+          src="public\images\barth.jpg"
           alt="First slide"
         />
         <Carousel.Caption>
@@ -20,7 +20,7 @@ export default function Caroussel() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
+          src="public\images\barth.jpg"
           alt="Second slide"
         />
 
@@ -32,7 +32,7 @@ export default function Caroussel() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
+          src="../../public\images\barth.jpg"
           alt="Third slide"
         />
 

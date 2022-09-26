@@ -3,20 +3,23 @@ import React from 'react'
 const About = () => {
   return (
     
-          <div className=" col-md-8 text-center text-dark  mx-auto">
+          <div className=" col-md-10 text-center text-dark  mx-auto">
       
        <div className="page-section">
       <div className="container">
         <div className="row align-items-center">
-          <div className="col-lg-8 py-3">
+          <div className="col-lg-5 ">
        
-            <h2 className="title-section"> Ville de <span className="fg-success">Dakar</span> .</h2>
+            <h2 className="title-section">Projet de Mise en place d'une plateforme
+pour le <span className="fg-success">Financement de projets </span> .</h2>
 
-            <p>La ville de Dakar est une collectivité locale, chef lieu de la capitale Sénégalaise. Elle épouse les contours du département de Dakar, elle est dotée d’une personnalité morale et d’une autonomie financière. La Ville de Dakar fut créée le 25 mai 1857, elle occupe une superficie de 83 km², et sa population est estimée à plus de 2 millions d’habitants. Elle est divisée en dix-neuf communes dirigées chacune par un Maire.  
-
-L’institution est composée de dix directions avec plus de 1600 agents et 800 volontaires. La ville de Dakar a un budget annuel qui dépasse les 60 millions d’euros, soit 40 milliards de Francs CFA.</p>
+            <p>La ville de Dakar est une collectivité locale, chef lieu de la capitale Sénégalaise. 
+              Elle épouse les contours du département de Dakar, elle est dotée d’une personnalité morale et d’une autonomie financière.
+               La ville de Dakar a un budget annuel qui dépasse les 60 millions d’euros, soit 40 milliards de Francs CFA.
+               Il s’agit ainsi de faciliter l’accès au financement pour les entrepreneurs généralement exclus du système financier classique, 
+               afin de leur permettre de démarrer une activité génératrice de revenus ou d’en consolider une existante.</p>
           </div>
-          <div className="col-lg-4 py-3">
+          <div className="col-lg-7 ">
             <div className="about-img">
             <img src={"/images/barth.jpg"}  alt="barth" />
             </div>

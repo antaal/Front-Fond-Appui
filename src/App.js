@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './App.css';
-import axios from 'axios';
 import {Route, Routes} from 'react-router-dom';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 //  import {authContext} from './helpers/AppContext';
 import Secteur from './components/admin/offres/Secteur';
 // import FormOffre from './components/admin/offres/FormOffre';
@@ -21,6 +21,7 @@ import EditOffre from './components/admin/offres/EditOffre';
 import ListOffres from './components/admin/offres/ListOffres';
 import Inscrire from './pages/auth/Inscrire';
 import Connexion from './pages/auth/Connexion';
+import Caroussel from './components/Caroussel';
 const url = "http://127.0.0.1:8000/api"
 
 
@@ -76,12 +77,12 @@ function App() {
            <Route path="/postOffre" element={<PostOffre />} />
            <Route path="/details/:id" element={<Detail />} />
            <Route path="/detailsOffres" element={<DetailsOffres />} />
-           <Route path="/carousel" element={<Secteur />} />
+           <Route path="/carousel" element={<Caroussel />} />
 {/* Admin routes */}
           <Route path="/admin/Secteur" element={<Secteur />} />
           <Route path="/offre/new" element={<FormOffre />} />
           <Route path="/offre/edit/:id" element={<EditOffre />} />
-          <Route exact path='/list' element={<ListOffres />} />
+          <Route path='/list' element={<ListOffres />} />
           {/* <Route path="/offres" element={<Offres />} /> */}
           <Route path="/admin/editOffre" element={<EditOffre />} />
           <Route path="/admin/listProjet" element={<ListProjet />} /> 

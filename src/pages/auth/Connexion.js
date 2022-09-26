@@ -2,10 +2,10 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import { authContext } from '../../helpers/AppContext';
+// import { authContext } from '../../helpers/AppContext';
 
 const Connexion = () => {
-  const {logged, setLogged} = useContext(authContext)
+  // const {logged, setLogged} = useContext(authContext)
   const [setUser] = useState(undefined)
   const [loading, setLoading]= useState(true);
   const url = "http://127.0.0.1:8000/api";
@@ -36,7 +36,7 @@ const Connexion = () => {
          if (res.data.status === 200) {
           console.log(res.data)
           localStorage.setItem('user_token',res.data.token)
-           setLogged(true);
+          //  setLogged(true);
           userInfo();
           navigate('/soumission')
          }
@@ -59,7 +59,7 @@ const Connexion = () => {
         .then(response => {
            
             console.log(response.data);
-          setLogged(true)
+          // setLogged(true)
             setUser(response.data)
             
         })
@@ -73,7 +73,7 @@ const Connexion = () => {
 
  const checkLogin = ()=> {
     if (localStorage.getItem('user_token')) {
-         setLogged(true)
+        //  setLogged(true)
         navigate('/soumission')
         
     }

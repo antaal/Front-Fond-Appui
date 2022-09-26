@@ -6,51 +6,24 @@ import Col from 'react-bootstrap/Col';
 import axios from 'axios'
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom'
+import { getAllSecteurs, postOffre } from '../../../utils/requests'
 export default function FormOffre() {
   const navigate = useNavigate();
-
-  const [titre, setTitre] = useState("")
-  const [image, setImage] = useState()
-  const [description, setDescription] = useState("")
-  const [date_Lancement, setDateLancement] = useState("")
-  const [fin_Depot, setFinDepot] = useState("")
-  const [secteur, setSecteur] = useState("");
+  const [secteurs, setSecteurs] = useState({data: []});
   const [validationError,setValidationError] = useState({})
 
-
- 
-  const changeHandler = (event) => {
-    // let src = URL.createObjectURL(event)
-    // const reader = new FileReader()
-    // console.log(reader)
-
-    setImage(event.target.files[0]);
-
-
-	};
-
-  const createOffre = async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData()
-
-    formData.append('titre', titre)
-    formData.append('image', image)
-    formData.append('description', description)
-    formData.append('date_Lancement', date_Lancement)
-    formData.append('fin_Depot', fin_Depot)
-    formData.append('secteur', secteur)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('Submit ')
     
-    
-
-    await axios.post(`http://localhost:8000/api/offres`, formData).then(({data})=>{
+    const data = new FormData(e.target)
+    postOffre(Object.fromEntries(data.entries())).then(function ({ response }) {
       console.log(data);
       Swal.fire({
-        icon:"success",
-        text:data.message,
-        
-      })
-      navigate("/")
+        icon: "success",
+        text: data.message,
+      });
+      navigate("/");
     }).catch(({response})=>{
       if(response.status===422){
         setValidationError(response.data.errors)
@@ -62,7 +35,20 @@ export default function FormOffre() {
       }
     })
   }
+      
+
   
+
+  useEffect(()=>{
+    (async()=>{
+      const secteurs =  await getAllSecteurs();
+        setSecteurs(secteurs)
+    })()
+  },[])
+
+
+ 
+    
   return (
     <div className="container">
       <div className="row justify-content-center">
@@ -79,8 +65,8 @@ export default function FormOffre() {
                         <div className="alert alert-danger">
                           <ul className="mb-0">
                             {
-                              Object.entries(validationError).map(([key, value])=>(
-                                <li key={key}>{value}</li>   
+                              Object.entries(validationError).map(([key, name])=>(
+                                <li key={key}>{name}</li>   
                               ))
                             }
                           </ul>
@@ -89,14 +75,13 @@ export default function FormOffre() {
                     </div>
                   )
                 }
-                <Form onSubmit={createOffre} >
+                <Form encType='multipart/form-data'  onSubmit={handleSubmit}>
                   <Row> 
                       <Col>
                         <Form.Group controlId="Name">
                             <Form.Label>Title</Form.Label>
-                            <Form.Control type="text" value={titre} onChange={(event)=>{
-                              setTitre(event.target.value)
-                            }}/>
+                            <Form.Control type="text" name="titre"
+                          />
                         </Form.Group>
                       </Col>  
                   </Row>
@@ -113,8 +98,8 @@ export default function FormOffre() {
                       <Col>
                         <Form.Group controlId="Description">
                             <Form.Label>Description</Form.Label>
-                            <Form.Control as="textarea" rows={3} value={description} onChange={(event)=>{
-                              setDescription(event.target.value)
+                            <Form.Control as="textarea" rows={3} name={description} onChange={(event)=>{
+                              setDescription(event.target.name)
                             }}/>
                         </Form.Group>
                       </Col>
@@ -123,9 +108,9 @@ export default function FormOffre() {
                   <Row className="my-3">
                       <Col>
                         <Form.Group controlId="DateLancement">
-                            <Form.Label>Date Lancement</Form.Label>
-                            <Form.Control type="date" rows={3} value={date_Lancement} onChange={(event)=>{
-                              setDateLancement(event.target.value)
+                            <Form.Label>Description</Form.Label>
+                            <Form.Control type="date" rows={3} name={date_Lancement} onChange={(event)=>{
+                              setDateLancement(event.target.name)
                             }}/>
                         </Form.Group>
                       </Col>
@@ -135,8 +120,8 @@ export default function FormOffre() {
                       <Col>
                         <Form.Group controlId="FinDepot">
                             <Form.Label>Fin Depot</Form.Label>
-                            <Form.Control type="date" rows={3} value={fin_Depot} onChange={(event)=>{
-                              setFinDepot(event.target.value)
+                            <Form.Control type="date" rows={3} name={fin_Depot} onChange={(event)=>{
+                              setFinDepot(event.target.name)
                             }}/>             
                         </Form.Group>
                       </Col>
@@ -145,10 +130,12 @@ export default function FormOffre() {
                   <Row className="my-3">
                       <Col>
                         <Form.Group controlId="SecteurId">
-                            <Form.Label>Secteur Concerné</Form.Label>
-                            <Form.Control type="text" value={secteur} onChange={(event)=>{
-                              setSecteur(event.target.value)
-                            }}/>
+                            <Form.Label>Secteur Concerne</Form.Label>
+                            <select id="secteur_id" className="form-control" name={secteurs}  defaultValue>
+      <option >Choisir Votre Quartier</option>
+      {secteurs.length > 0 && secteurs.map(s => <option name={s.id} key={s.id}>{s.nom_Secteur}</option>)}
+
+    </select>
                         </Form.Group>
                       </Col>
                   </Row>
@@ -287,7 +274,7 @@ export default function FormOffre() {
 //     <label for="secteur_id" className="form-label">Secteurs</label>
 //     <select id="secteur_id" className="form-select" name="secteur_id" defaultValue>
 //       <option >Choisir votre Secteurs</option>
-//       {secteurs.length > 0 && secteurs.map(s => <option value={s.id} key={s.id}>{s.nom_Secteur}</option>)}
+//       {secteurs.length > 0 && secteurs.map(s => <option name={s.id} key={s.id}>{s.nom_Secteur}</option>)}
 
 //     </select>
 //   </div>

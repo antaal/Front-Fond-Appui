@@ -8,6 +8,7 @@
 .view{
   width: 15px;
 }
+
 .envoie{
   background: #00721F;
 /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); */
@@ -2047,7 +2048,7 @@ a.fg-light:hover, a.fg-light:focus {
   position: relative;
   margin: 15px auto;
   width: auto;
-  max-width: 500px;
+  max-width: 700px;
   border-radius: 12px;
   overflow: hidden;
   -webkit-box-shadow: 0 8px 16px rgba(109, 114, 139, 0.3);
@@ -9058,7 +9059,7 @@ a.close.disabled {
   padding: 0.5rem 0.75rem;
   color: #212529;
 }
-
+/* 
 .carousel {
   position: absolute;
  
@@ -9259,7 +9260,7 @@ a.close.disabled {
   padding-bottom: 20px;
   color: #fff;
   text-align: center;
-}
+} */
 
 @-webkit-keyframes spinner-border {
   to {
