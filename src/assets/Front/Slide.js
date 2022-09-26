@@ -39,7 +39,7 @@ src="https://der.sn/sites/default/files/DERFJ/Various/depot-dossier.jpg"
           <div className="carousel-caption text-end">
             <h1>la Ville de Dakar.</h1>
             <h3>Nous Donnons De La Valeur A Vos Projets!</h3>
-            <p><Link className="btn btn-lg btn-primary" to="/soumission">Soumettre</Link></p>
+            <p><Link className="btn  btn-primary" to="/soumission">Soumettre</Link></p>
           </div>
         </div>
       </div>

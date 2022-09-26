@@ -20,7 +20,10 @@ const Home = () => {
       <Header/>
      <Slide />
       <About />
-      <hr class="featurette-divider" />
+      <hr className="featurette-divider" />
+     <h1 className='text-center'>Nos Offres</h1>
+      <hr className="featurette-divider" />
+ 
       <PostOffre />
        <Footer />
      

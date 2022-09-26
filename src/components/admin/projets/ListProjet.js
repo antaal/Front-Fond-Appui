@@ -24,7 +24,7 @@ const ListProjet = () => {
       <th scope="col">Contexte</th>
       <th scope="col">Description Général</th>
       <th scope="col">Durée Execution</th>
-      <th scope="col">Zone Execution</th>
+      <th scope="col">Offre</th>
       <th scope="col">Responsable</th>
       <th scope="col">Action</th>
       
@@ -41,8 +41,8 @@ const ListProjet = () => {
             <td>{row.Contexte}</td>
             <td>{row.Description_General}</td>
             <td>{row.duree_Execution} Mois</td>
-            <td>{row.zone_Execution}</td>
-            <td>{row.responsables_id}</td>
+            <td>{row.offre.titre}</td>
+            <td>{row.responsable.prenom}{row.responsable.nom} </td>
             <td>{row.action}
             <Link to={`/admin/detailprojet/${row.id}`} className="btn btn-primary mr-2">Detail</Link>
             

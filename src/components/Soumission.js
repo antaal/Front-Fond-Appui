@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React ,{useState, useEffect} from 'react'
 import {postProjet, postResponsable} from '../utils/requests'
 import { getAllQuartiers,getAllOffres } from '../utils/requests'
@@ -14,6 +15,8 @@ const Soumission = () => {
     const data = new FormData(e.target)
     postResponsable(Object.fromEntries(data.entries())).then(response =>console.log(response))
     postProjet(Object.fromEntries(data.entries())).then(response =>console.log(response))  
+
+    
   }
 
 

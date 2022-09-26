@@ -42,7 +42,7 @@ const Header = () => {
         <img src={"/images/logo1.png"} className="navbar-brand" alt="logo" />
         <a href="Accueil" className="navbar-brand">Ville de <i className="text-success">Dakar.</i></a>
 
-        <button className="navbar-toggler" data-bs-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <i className="navbar-toggler-icon"></i>
         </button>
 

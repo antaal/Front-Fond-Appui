@@ -10,30 +10,21 @@ e.stopPropagation();
   
  const navigate = useNavigate();
   return (
-    <Card onClick={handleClick}>
-<div>
-<div className="card">
-  <img  src={`http://localhost:8000/storage/${offre.image}`} className="card-img-top" alt="images"/>
-  
+<div onClick={handleClick} className="card mb-5"style= {{width: '28rem'}}>
+  <img className="card-img-top" src={`http://localhost:8000/storage/${offre.image}`} alt="Card image cap"/>
   <div className="card-body">
-    <h3 className="card-title">{offre.titre}</h3>
-{/* <a className="btn btn-primary" href="/details">En savoir Plus</a> */}
-<a className=" btn btn-primary fw-bolder text-light" onClick={() =>navigate('/details/:id')}>En Savoir Plus</a>
-</div>
-</div>
-</div>
-
-    </Card>
-
+    <h4 className="card-title">{offre.titre}</h4>
+    <p className="card-text">{offre.date_Lancement} | {offre.fin_Depot} </p>
+    </div>
+    <a onClick={() =>navigate('/details/:id')} className=" btn btn-primary fw-bolder text-light">Voir Plus</a>
   
+</div>
+
+
 
   )
 }
-const Card = styled.div`
-width: 600px;
-height: 600px;
-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-`
+
 
 
 export default Offres

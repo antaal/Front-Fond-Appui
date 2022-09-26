@@ -1,9 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
+import { Button } from 'react-bootstrap';
+import {useReactToPrint} from 'react-to-print';
 import { useParams } from 'react-router-dom'
 import { getProjetById } from '../../../utils/requests'
 
 
+
 const DetailProjet = () => {
+
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+      content:()=>componentRef.current,
+      documentTitle: 'emp-data',
+      onAfterPrint:()=>alert('print success')
+  })
     const {id} = useParams();
     const [projets,setProjets] = useState([])
     useEffect(()=>{
@@ -13,15 +23,24 @@ const DetailProjet = () => {
         })()
       },[])
   return (
-    <div className='container '>
+    <>
+    <div className="container">
+    <div ref={componentRef} style={{width:'100%', height:window.innerHeight}}>
+    
 
 <div className="row ">
   <div className="col-12">
     <div className="card">
-      <div className="card-body bg-success">
-        <h5 className="card-title">{projets.nom_Projet}</h5>
+      <div className="card-body bg-light">
+        <h3 className="card-title text-dark">{projets.nom_Projet}</h3>
         </div>
         <ul className="list-group">
+    <li className="list-group-item"><h6 className="fw-bold">Objet:</h6>{projets.objet_Projet}</li>
+    <li className="list-group-item"><h6 className="fw-bold">Contexte:</h6>{projets.Contexte}</li>
+    <li className="list-group-item"><h6 className="fw-bold">Description Général:</h6>{projets.Description_General}</li>
+    <li className="list-group-item"><h6 className="fw-bold">Zone Execution:</h6>{projets.zone_Execution}</li>
+    <li className="list-group-item"><h6 className="fw-bold">Responsable:</h6>{projets.responsables_id}</li>
+
     <li className="list-group-item"><h6 className="fw-bold">Durée Execution:</h6>{projets.debut_Execution}</li>
     <li className="list-group-item"><h6 className="fw-bold">Fin Execution:</h6>{projets.fin_Execution}</li>
   
@@ -72,9 +91,17 @@ const DetailProjet = () => {
     </div>
   </div>
 
+
     </div>
    
+    
+    <div>
+    <Button variant="success" onClick={handlePrint}>Imprimer</Button>
+</div>
+
     </div>
+    </div>
+    </>
   )
 }
 

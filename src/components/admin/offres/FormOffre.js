@@ -14,7 +14,7 @@ export default function FormOffre() {
   const [description, setDescription] = useState("")
   const [date_Lancement, setDateLancement] = useState("")
   const [fin_Depot, setFinDepot] = useState("")
-  const [secteur, setSecteur] = useState("");
+  const [secteurs, setSecteurs] = useState("")
   const [validationError,setValidationError] = useState({})
 
 
@@ -39,7 +39,7 @@ export default function FormOffre() {
     formData.append('description', description)
     formData.append('date_Lancement', date_Lancement)
     formData.append('fin_Depot', fin_Depot)
-    formData.append('secteur', secteur)
+    formData.append('secteurs', secteurs)
     
     
 
@@ -130,7 +130,16 @@ export default function FormOffre() {
                         </Form.Group>
                       </Col>
                   </Row>
-
+                  <Row className="my-3">
+                      <Col>
+                        <Form.Group controlId="SecteurId">
+                            <Form.Label>Secteur Concernée</Form.Label>
+                            <Form.Control type="text" value={secteurs} onChange={(event)=>{
+                              setSecteurs(event.target.value)
+                            }}/>
+                        </Form.Group>
+                      </Col>
+                  </Row>
                   <Row className="my-3">
                       <Col>
                         <Form.Group controlId="FinDepot">
@@ -142,16 +151,7 @@ export default function FormOffre() {
                       </Col>
                   </Row>
 
-                  <Row className="my-3">
-                      <Col>
-                        <Form.Group controlId="SecteurId">
-                            <Form.Label>Secteur Concerné</Form.Label>
-                            <Form.Control type="text" value={secteur} onChange={(event)=>{
-                              setSecteur(event.target.value)
-                            }}/>
-                        </Form.Group>
-                      </Col>
-                  </Row>
+                
                   <Button variant="primary" className="mt-2" size="lg" block="block" type="submit">
                     Save
                   </Button>
@@ -285,9 +285,9 @@ export default function FormOffre() {
 //             />
 //             <div>
 //     <label for="secteur_id" className="form-label">Secteurs</label>
-//     <select id="secteur_id" className="form-select" name="secteur_id" defaultValue>
+//     <select id="secteur_id" className="form-select" name="secteur_id" defaultname>
 //       <option >Choisir votre Secteurs</option>
-//       {secteurs.length > 0 && secteurs.map(s => <option value={s.id} key={s.id}>{s.nom_Secteur}</option>)}
+//       {secteurs.length > 0 && secteurs.map(s => <option name={s.id} key={s.id}>{s.nom_Secteur}</option>)}
 
 //     </select>
 //   </div>
