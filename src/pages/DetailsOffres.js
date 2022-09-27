@@ -1,13 +1,16 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import Header from '../components/Header';
 
 const DetailsOffres = ({offre}) => {
   const navigate = useNavigate();
     return (
 
-        <div className="container">
-        
-        
+      <>
+       
+    
+
+     
         <h1 className="my-4">En Savoir Plus &nbsp;
           <small className="text-success">Sur Nos Offres</small>
         </h1>
@@ -31,14 +34,14 @@ const DetailsOffres = ({offre}) => {
           </div>
         <div>
         <a className=" btn btn-primary fw-bolder text-light" onClick={() =>navigate('/soumission')}>Postuler</a>
+        <a className=" btn btn-primary fw-bolder text-light mx-4" onClick={() =>navigate('/')}>Retouner</a>
+        
+        </div>
+        </div>
 
-        </div>
-        </div>
-
+        </>
         
-        
-        </div>
-        
+     
         
           )
 }

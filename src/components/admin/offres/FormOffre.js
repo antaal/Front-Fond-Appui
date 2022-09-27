@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import axios from 'axios'
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom'
+import Headers from "../../Headers";
 export default function FormOffre() {
   const navigate = useNavigate();
 
@@ -50,7 +51,7 @@ export default function FormOffre() {
         text:data.message,
         
       })
-      navigate("/")
+      navigate("/list")
     }).catch(({response})=>{
       if(response.status===422){
         setValidationError(response.data.errors)
@@ -64,12 +65,14 @@ export default function FormOffre() {
   }
   
   return (
-    <div className="container">
+    <>
+    <Headers/>
+    <div className="container-fluid">
       <div className="row justify-content-center">
         <div className="col-12 col-sm-12 col-md-6">
           <div className="card">
             <div className="card-body">
-              <h4 className="card-title">Create Offres</h4>
+              <h4 className="card-title">Créer Un Offre</h4>
               <hr />
               <div className="form-wrapper">
                 {
@@ -162,6 +165,7 @@ export default function FormOffre() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

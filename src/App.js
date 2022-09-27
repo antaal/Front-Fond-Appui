@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './App.css';
 import {Route, Routes} from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-//  import {authContext} from './helpers/AppContext';
+  import {authContext} from './helpers/AppContext';
 import Secteur from './components/admin/offres/Secteur';
 // import FormOffre from './components/admin/offres/FormOffre';
 // import ListOffres from './components/admin/offres/ListOffres';
@@ -22,7 +22,7 @@ import ListOffres from './components/admin/offres/ListOffres';
 import Inscrire from './pages/auth/Inscrire';
 import Connexion from './pages/auth/Connexion';
 import Caroussel from './components/Caroussel';
-
+import axios from 'axios';
 const url = "http://127.0.0.1:8000/api"
 
 
@@ -35,34 +35,34 @@ const url = "http://127.0.0.1:8000/api"
 
 
 function App() {
-//   const [logged, setLogged] = useState(false)
-//   const [user, setUser] = useState(undefined)
+  const [logged, setLogged] = useState(false)
+  const [user, setUser] = useState(undefined)
 
-// useEffect(()=>{
-//   userInfo();
-// },[]);
+useEffect(()=>{
+  userInfo();
+},[]);
 
-// const userInfo = async () => {
-//   if (localStorage.getItem('user_token')) {
-//     await axios.get(`${url}/user`,{
-//       headers: {
-//           Authorization: `Bearer ${localStorage.getItem('user_token')}`
-//       }
-//   })
-//   .then(response => {
+const userInfo = async () => {
+  if (localStorage.getItem('user_token')) {
+    await axios.get(`${url}/user`,{
+      headers: {
+          Authorization: `Bearer ${localStorage.getItem('user_token')}`
+      }
+  })
+  .then(response => {
      
-//       console.log(response.data);
-//       setLogged(true)
-//       setUser(response.data)
+      console.log(response.data);
+      setLogged(true)
+      setUser(response.data)
       
-//   })
-//   .catch(error => {
-//       console.log(error);
-//   });
-// }
-// }
+  })
+  .catch(error => {
+      console.log(error);
+  });
+}
+}
   return (
-    // <authContext.Provider value={{logged, setLogged, user,setUser}}>
+     <authContext.Provider value={{logged, setLogged, user,setUser}}>
     <div className="App">
 
     
@@ -98,7 +98,7 @@ function App() {
       
 
 </div>
-//  </authContext.Provider>
+  </authContext.Provider>
     
   );
 }

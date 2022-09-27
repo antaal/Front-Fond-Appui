@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
+import Header from '../../components/Header';
 
 const Inscrire = () => {
   const [nom, setNom] = useState('')
@@ -30,6 +31,8 @@ const Inscrire = () => {
 
   let navigate = useNavigate();
   return (
+    <>
+    <Header />
     <Wrapper className="container">
         <Content className="col-6 ">
         <div >
@@ -88,6 +91,7 @@ const Inscrire = () => {
           </ImageWrapper>
         
     </Wrapper>
+    </>
   )
 }
 
@@ -95,7 +99,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+ 
 border-radius: 10px;
 font-family: 'Inter';
 font-style: normal;

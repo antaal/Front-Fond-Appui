@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button'
 import axios from 'axios';
 import Swal from 'sweetalert2'
 import SideBar from '../../../layouts/admin/SideBar';
+import Headers from '../../Headers';
 
 export default function ListOffres() {
 
@@ -52,12 +53,12 @@ export default function ListOffres() {
 
     return (
       <div>
-        <SideBar />
+      <Headers/>
         <div className="container bg-gray">
           <div className="row">
             <div className='col-12'>
                 <Link className='btn btn-primary mb-2 float-end' to={"/offre/new"}>
-                    Create Product
+                    Créer Un Offre
                 </Link>
             </div>
             <div className="col-12">

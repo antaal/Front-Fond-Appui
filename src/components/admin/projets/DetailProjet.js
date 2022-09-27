@@ -3,6 +3,9 @@ import { Button } from 'react-bootstrap';
 import {useReactToPrint} from 'react-to-print';
 import { useParams } from 'react-router-dom'
 import { getProjetById } from '../../../utils/requests'
+import Headers from '../../Headers';
+import Header from '../../Header';
+
 
 
 
@@ -24,11 +27,13 @@ const DetailProjet = () => {
       },[])
   return (
     <>
-    <div className="container">
+<Headers/>
+   <h1 className='text-center'>Detail Projet</h1>
+    <div>
     <div ref={componentRef} style={{width:'100%', height:window.innerHeight}}>
     
 
-<div className="row ">
+<div className="container ">
   <div className="col-12">
     <div className="card">
       <div className="card-body bg-light">
@@ -39,7 +44,7 @@ const DetailProjet = () => {
     <li className="list-group-item"><h6 className="fw-bold">Contexte:</h6>{projets.Contexte}</li>
     <li className="list-group-item"><h6 className="fw-bold">Description Général:</h6>{projets.Description_General}</li>
     <li className="list-group-item"><h6 className="fw-bold">Zone Execution:</h6>{projets.zone_Execution}</li>
-    <li className="list-group-item"><h6 className="fw-bold">Responsable:</h6>{projets.responsables_id}</li>
+    {/* <li className="list-group-item"><h6 className="fw-bold">Responsable:</h6>{projets.responsables_id}</li> */}
 
     <li className="list-group-item"><h6 className="fw-bold">Durée Execution:</h6>{projets.debut_Execution}</li>
     <li className="list-group-item"><h6 className="fw-bold">Fin Execution:</h6>{projets.fin_Execution}</li>
@@ -57,8 +62,8 @@ const DetailProjet = () => {
 
   </div>
   </div>
-  <div className="row  mt-4">
-  <div className="col-6">
+  <div className="container  mt-4">
+  <div className="col-12">
     <div className="card">
       <div className="card-body bg-success">
         <h5 className="card-title">Financement sollicitée</h5>
@@ -75,7 +80,7 @@ const DetailProjet = () => {
     </div>
   </div>
 
-  <div className="col-6">
+  {/* <div className="col-6">
     <div className="card">
       <div className="card-body bg-success">
         <h5 className="card-title ">Etat Du Projet</h5>
@@ -89,16 +94,16 @@ const DetailProjet = () => {
         </ul>
       
     </div>
-  </div>
+  </div> */}
 
 
-    </div>
    
     
-    <div>
+    <div >
     <Button variant="success" onClick={handlePrint}>Imprimer</Button>
 </div>
-
+</div>
+   
     </div>
     </div>
     </>

@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react'
 import '../../../../src/App.css';
 import { Link } from 'react-router-dom'
 import { getAllProjets } from '../../../utils/requests'
+import SideBar from '../../../layouts/admin/SideBar';
+import Headers from '../../Headers';
 
 
 
 const ListProjet = () => {
+ 
     const [projets,setProjets] = useState([])
     useEffect(()=>{
         (async()=>{
@@ -14,7 +17,10 @@ const ListProjet = () => {
         })()
       },[])
   return (
-    <div className="col-10 text-center text-dark mb-4  mx-auto">
+    <>
+    <Headers/>
+  
+    <div className="col-10 text-center text-dark mb-4  mx-auto ">
         <table className="table table-striped ">
   <thead className="bg-success">
     <tr>
@@ -56,6 +62,7 @@ const ListProjet = () => {
 </table>
 
     </div>
+    </>
   )
 }
 

@@ -214,27 +214,27 @@ useEffect(()=>{
   <tbody>
     <tr>
       <th scope="row">Objectif Général </th>
-      <td><input type="text" className="w-100" name="Description_General"/></td>
+      <td><input type="text" className="w-100" style={{border:'none'}} name="Description_General"/></td>
     </tr>
     <tr>
       <th scope="row">OS1  (Objectif Spécifique 1) </th>
-      <td ><input type="text" className="w-100" name="description_Objectif"/></td>
+      <td ><input type="text" className="w-100" style={{border:'none'}} name="description_Objectif"/></td>
       
     </tr>
 
     <tr>
       <th scope="row">Activites </th>
-      <td ><input type="text" className="w-100" name="description_Activite"/></td>
+      <td ><input type="text" className="w-100"  style={{border:'none'}}name="description_Activite"/></td>
       
     </tr>
     <tr>
       <th scope="row">Risque Identifies </th>
-      <td ><input type="text" className="w-100" name="risque_Identifier"/></td>
+      <td ><input type="text" className="w-100" style={{border:'none'}}name="risque_Identifier"/></td>
       
     </tr>
     <tr>
       <th scope="row">Resultats escomptés </th>
-      <td ><input type="text" className="w-100" name="description_Resultat"/></td>
+      <td ><input type="text" className="w-100" style={{border:'none'}}name="description_Resultat"/></td>
       
     </tr>
   </tbody>

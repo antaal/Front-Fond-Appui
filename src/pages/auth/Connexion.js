@@ -2,10 +2,11 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-// import { authContext } from '../../helpers/AppContext';
+import Header from '../../components/Header';
+import { authContext } from '../../helpers/AppContext';
 
 const Connexion = () => {
-  // const {logged, setLogged} = useContext(authContext)
+   const {logged, setLogged} = useContext(authContext)
   const [setUser] = useState(undefined)
   const [loading, setLoading]= useState(true);
   const url = "http://127.0.0.1:8000/api";
@@ -36,9 +37,9 @@ const Connexion = () => {
          if (res.data.status === 200) {
           console.log(res.data)
           localStorage.setItem('user_token',res.data.token)
-          //  setLogged(true);
+           setLogged(true);
           userInfo();
-          navigate('/soumission')
+          navigate('/admin/listProjet')
          }
       })
       .catch((err)=>{
@@ -59,7 +60,7 @@ const Connexion = () => {
         .then(response => {
            
             console.log(response.data);
-          // setLogged(true)
+           setLogged(true)
             setUser(response.data)
             
         })
@@ -73,17 +74,19 @@ const Connexion = () => {
 
  const checkLogin = ()=> {
     if (localStorage.getItem('user_token')) {
-        //  setLogged(true)
-        navigate('/soumission')
+          setLogged(true)
+        navigate('/admin/listProjet')
         
     }
 }
   return (
-    <Wrapper className="row">
-     <ImageWrapper className="col-4 ">
-          <img src={"/images/connexion.png"} alt="ime2" />
+    <>
+    <Header />
+    <Wrapper className="container">
+     <ImageWrapper className="col-5">
+          <img src={"/images/connexion.png"} alt="ime2" width="800px" />
         </ImageWrapper>
-        <Content className="col-5 ">
+        <Content className="col-4 ">
         <div >
           <h1>Connexion</h1>
           {error? 'Donnees Non reconnus': null}
@@ -121,6 +124,7 @@ const Connexion = () => {
         </Content>
         
     </Wrapper>
+    </>
   )
 }
 
@@ -129,11 +133,17 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 
+border-radius: 10px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
   `
 const Content = styled.div`
 `
 const ImageWrapper = styled.div`
-  
+  width: 100px;
 `
 
 

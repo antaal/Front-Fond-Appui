@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
  import { authContext } from '../helpers/AppContext'
 
-const Header = () => {
+const Headers = () => {
    const {logged} = useContext(authContext)
   return (
     <>
@@ -20,7 +20,7 @@ const Header = () => {
           </div>
             <div className="col-md-4">
                 <div className="d-inline-block align-center">
-                    <img src={"images/Rectangle.png"} alt='rectangle' className='rectangle center'/>
+                    <img src={"../../images/Rectangle.png"} alt='rectangle' className='rectangle center'/>
                 </div>
             </div>
           <div className="col-md-4 text-right d-none d-md-block">
@@ -56,11 +56,11 @@ const Header = () => {
               <a href="about.html" className="nav-link">A Propos</a>
             </li> */}
             <li className="nav-item">
-              <Link to={"/contact"} className="nav-link">Contact</Link>
+              <Link to={"/list"} className="nav-link">Offres</Link>
             </li>
             <li className="nav-item">
               {logged ? (
-                  <Link to={"/soumission"} className="nav-link">Projet</Link>
+                  <Link to={"/admin/listProjet"} className="nav-link">Projets</Link>
               ) : (
                 <Link to={"/login"} className="nav-link">Se Connecter</Link>
                )} 
@@ -77,5 +77,5 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Headers
 
